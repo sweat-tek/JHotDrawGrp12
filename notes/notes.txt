@@ -1,0 +1,27 @@
+Userstory - Image Tool #4
+
+package org.jhotdraw.draw.figure;
+
+class - ImageFigure - line 97
+
+--
+
+Userstory - text tool #3
+
+TextAreaCreationTool - line 127
+
+TextCreationTool - line 94
+
+--
+
+Userstory - Rectangle tool
+
+AbstractHandle - line 192
+
+--
+
+Userstory - delete action
+
+DeleteAction - line 115 - package org.jhotdraw.action.edit;
+
+

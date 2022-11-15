@@ -7,6 +7,7 @@
  */
 package org.jhotdraw.action.edit;
 
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
@@ -90,9 +91,11 @@ public class DeleteAction extends TextAction {
      * focused component.
      */
     protected DeleteAction(JComponent target, String id) {
+
         super(id);
         this.target = target;
         if (target != null) {
+
             // Register with a weak reference on the JComponent.
             propertyHandler = new PropertyChangeListener() {
                 @Override
@@ -108,8 +111,10 @@ public class DeleteAction extends TextAction {
         labels.configureAction(this, ID);
     }
 
+    @FeatureEntryPoint(value = "Delete Tool")
     @Override
     public void actionPerformed(ActionEvent evt) {
+        System.out.println("delete");
         JComponent c = target;
         if (c == null && (KeyboardFocusManager.getCurrentKeyboardFocusManager().
                 getPermanentFocusOwner() instanceof JComponent)) {

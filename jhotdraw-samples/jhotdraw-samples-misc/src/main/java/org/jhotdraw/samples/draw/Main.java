@@ -27,9 +27,7 @@ public class Main {
     /**
      * Creates a new instance.
      */
-    @FeatureEntryPoint(value = "main")
     public static void main(String[] args) {
-        System.out.println("Started application");
 
         ResourceBundleUtil.setVerbose(true);
         Application app;

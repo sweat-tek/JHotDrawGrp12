@@ -7,6 +7,8 @@
  */
 package org.jhotdraw.draw.text;
 
+
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
 import java.awt.geom.*;
@@ -39,6 +41,7 @@ import org.jhotdraw.draw.event.FigureListener;
  * @author Werner Randelshofer
  * @version $Id: FloatingTextArea.java -1 $
  */
+
 public class FloatingTextArea {
 
     /**
@@ -57,7 +60,7 @@ public class FloatingTextArea {
     private FigureListener figureHandler = new FigureAdapter() {
         @Override
         public void attributeChanged(FigureEvent e) {
-            updateWidget();
+            //updateWidget();
         }
     };
 
@@ -101,10 +104,11 @@ public class FloatingTextArea {
         this.view = view;
         if (editedFigure != null) {
             editedFigure.addFigureListener(figureHandler);
-            updateWidget();
+
+            //updateWidget();
         }
     }
-
+    /*
     protected void updateWidget() {
         Font f = editedFigure.getFont();
         // FIXME - Should scale with fractional value!
@@ -114,6 +118,8 @@ public class FloatingTextArea {
         textArea.setBackground(editedFigure.getFillColor());
 //        textArea.setBounds(getFieldBounds(editedFigure));
     }
+
+     */
 
     /**
      * Positions and sizes the overlay.
@@ -165,3 +171,5 @@ public class FloatingTextArea {
         }
     }
 }
+
+

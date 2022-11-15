@@ -7,6 +7,7 @@
  */
 package org.jhotdraw.draw.tool;
 
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.draw.figure.Figure;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
@@ -75,6 +76,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
  * @author Werner Randelshofer
  * @version $Id$
  */
+
 public class TextAreaCreationTool extends CreationTool implements ActionListener {
 
     private static final long serialVersionUID = 1L;
@@ -117,11 +119,13 @@ public class TextAreaCreationTool extends CreationTool implements ActionListener
      * Creates a new figure at the mouse location.
      * If editing is in progress, this finishes editing.
      */
+    @FeatureEntryPoint(value = "Text tool")
     @Override
     public void mousePressed(MouseEvent e) {
         // Note: The search sequence used here, must be
         // consistent with the search sequence used by the
         // HandleTracker, SelectAreaTracker, DelegationSelectionTool, SelectionTool.
+        System.out.println("Text tool");
         if (typingTarget != null) {
             endEdit();
             if (isToolDoneAfterCreation()) {

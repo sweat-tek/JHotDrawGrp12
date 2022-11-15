@@ -7,6 +7,7 @@
  */
 package org.jhotdraw.util;
 
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import java.awt.*;
 import java.awt.image.*;
 import java.net.*;
@@ -26,7 +27,9 @@ public class Images {
     private Images() {
     }
 
+    @FeatureEntryPoint(value = "Rectangle draw")
     public static Image createImage(Class<?> baseClass, String resourceName) {
+        System.out.println("image");
         URL resource = baseClass.getResource(resourceName);
         if (resource == null) {
             throw new InternalError("Ressource \"" + resourceName + "\" not found for class " + baseClass);

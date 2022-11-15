@@ -10,6 +10,11 @@
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
+			<groupId>dk.sdu.mmmi</groupId>
+			<artifactId>featuretracerlite</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.8.21</version>
