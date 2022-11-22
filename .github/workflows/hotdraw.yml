@@ -16,5 +16,5 @@ jobs:
       - name: Build and test with Maven
         run: mvn -s maven-settings.xml --batch-mode --update-snapshots verify
         env:
-          SECRET_USER_NAME: {}
-          SECRET_USER_TOKEN: {}
+          SECRET_USER_NAME:  ${{ secrets.SECRET_USER_NAME }}
+          SECRET_USER_TOKEN:  ${{ secrets.SECRET_USER_TOKEN }}
