@@ -7,7 +7,6 @@
  */
 package org.jhotdraw.action.edit;
 
-import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
@@ -111,7 +110,6 @@ public class DeleteAction extends TextAction {
         labels.configureAction(this, ID);
     }
 
-    @FeatureEntryPoint(value = "Delete Tool")
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("delete");

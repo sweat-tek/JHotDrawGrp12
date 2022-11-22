@@ -15,7 +15,6 @@ import java.util.*;
 import javax.imageio.*;
 import javax.swing.*;
 
-import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.draw.AttributeKeys;
 import static org.jhotdraw.draw.AttributeKeys.*;
 import org.jhotdraw.draw.connector.ChopRectangleConnector;
@@ -95,7 +94,6 @@ public class ImageFigure extends AbstractAttributedDecoratedFigure
         g.fill(r);
     }
 
-    @FeatureEntryPoint(value = "Image Drawing")
     protected void drawImage(Graphics2D g) {
         System.out.println("Drawed image");
         BufferedImage image = getBufferedImage();
