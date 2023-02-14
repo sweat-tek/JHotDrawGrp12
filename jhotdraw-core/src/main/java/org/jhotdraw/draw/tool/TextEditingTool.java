@@ -49,17 +49,20 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
     private static final long serialVersionUID = 1L;
     private FloatingTextField textField;
     private TextHolderFigure typingTarget;
+    private TextHelpEditingTool editingTool;
 
     /**
      * Creates a new instance.
      */
     public TextEditingTool(TextHolderFigure typingTarget) {
         this.typingTarget = typingTarget;
+        editingTool = new TextHelpEditingTool(typingTarget);
     }
 
     @Override
     public void deactivate(DrawingEditor editor) {
         endEdit();
+        //editingTool.endEdit();
         super.deactivate(editor);
     }
 
@@ -69,13 +72,16 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         if (typingTarget != null) {
+            //editingTool.beginEdit(typingTarget);
+            //editingTool.updateCursor(getView(), e.getPoint());
             beginEdit(typingTarget);
             updateCursor(getView(), e.getPoint());
         }
     }
 
+
+    //Refactoring
     protected void beginEdit(TextHolderFigure textHolder) {
-        System.out.println("Started editing with text tool - TextEditingTool-L80");
         if (textField == null) {
             textField = new FloatingTextField();
             textField.addActionListener(this);
@@ -88,9 +94,15 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         typingTarget = textHolder;
     }
 
+
+
+
+
     @Override
     public void mouseReleased(MouseEvent evt) {
     }
+
+
 
     protected void endEdit() {
         if (typingTarget != null) {
@@ -136,6 +148,10 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         //         view().checkDamage();
     }
 
+
+
+
+
     @Override
     public void keyReleased(KeyEvent evt) {
         if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -146,6 +162,7 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         endEdit();
+        //editingTool.endEdit();
         fireToolDone();
     }
 

@@ -61,6 +61,7 @@ public class TextCreationTool extends CreationTool implements ActionListener {
     private static final long serialVersionUID = 1L;
     private FloatingTextField textField;
     private TextHolderFigure typingTarget;
+    private UndoableEdit edit;
 
     /**
      * Creates a new instance.
@@ -85,8 +86,10 @@ public class TextCreationTool extends CreationTool implements ActionListener {
     /**
      * Creates a new figure at the location where the mouse was pressed.
      */
+
     @Override
     public void mousePressed(MouseEvent e) {
+        //Main method that activates on mouseevent
         // Note: The search sequence used here, must be
         // consistent with the search sequence used by the
         // HandleTracker, SelectAreaTracker, DelegationSelectionTool, SelectionTool.
@@ -106,11 +109,14 @@ public class TextCreationTool extends CreationTool implements ActionListener {
             beginEdit(textHolder);
             updateCursor(getView(), e.getPoint());
         }
+
     }
 
     @Override
     public void mouseDragged(java.awt.event.MouseEvent e) {
     }
+
+
 
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
@@ -146,6 +152,7 @@ public class TextCreationTool extends CreationTool implements ActionListener {
                     typingTarget.changed();
                 }
             }
+
             UndoableEdit edit = new AbstractUndoableEdit() {
                 private static final long serialVersionUID = 1L;
 

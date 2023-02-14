@@ -67,29 +67,57 @@ public class FloatingTextField {
      * Creates the overlay for the given Container using a
      * specific font.
      */
+
+    //Refactoring:
+    //Made createOverlay logic more readable
     public void createOverlay(DrawingView view, TextHolderFigure figure) {
         view.getComponent().add(textField, 0);
-        textField.setText(figure.getText());
-        textField.setColumns(figure.getTextColumns());
-        textField.selectAll();
-        textField.setVisible(true);
-        editedFigure = figure;
-        editedFigure.addFigureListener(figureHandler);
+        editTextField(figure);
+        setFigure(figure);
         this.view = view;
         updateWidget();
     }
 
+    //Refactoring
+    protected void editTextField(TextHolderFigure figure) {
+        textField.setText(figure.getText());
+        textField.setColumns(figure.getTextColumns());
+        textField.selectAll();
+        textField.setVisible(true);
+    }
+
+    //Refactoring
+    protected void setFigure(TextHolderFigure figure) {
+        editedFigure = figure;
+        editedFigure.addFigureListener(figureHandler);
+    }
+
+    //Refactoring
     protected void updateWidget() {
+        //update to extract setting font in new method
+        Font font = setFont();
+
+        Rectangle2D.Double fDrawBounds = editedFigure.getBounds();
+        Point2D.Double fDrawLoc = new Point2D.Double(fDrawBounds.getX(), fDrawBounds.getY());
+
+        if (editedFigure.get(TRANSFORM) != null) {
+            editedFigure.get(TRANSFORM).transform(fDrawLoc, fDrawLoc);
+        }
+        setTextFieldBounds(font, fDrawBounds, fDrawLoc);
+    }
+
+
+    //refactoring
+    protected Font setFont() {
         Font font = editedFigure.getFont();
         font = font.deriveFont(font.getStyle(), (float) (editedFigure.getFontSize() * view.getScaleFactor()));
         textField.setFont(font);
         textField.setForeground(editedFigure.getTextColor());
         textField.setBackground(editedFigure.getFillColor());
-        Rectangle2D.Double fDrawBounds = editedFigure.getBounds();
-        Point2D.Double fDrawLoc = new Point2D.Double(fDrawBounds.getX(), fDrawBounds.getY());
-        if (editedFigure.get(TRANSFORM) != null) {
-            editedFigure.get(TRANSFORM).transform(fDrawLoc, fDrawLoc);
-        }
+        return font;
+    }
+
+    protected void setTextFieldBounds(Font font, Rectangle2D.Double fDrawBounds, Point2D.Double fDrawLoc) {
         Point fViewLoc = view.drawingToView(fDrawLoc);
         Rectangle fViewBounds = view.drawingToView(fDrawBounds);
         fViewBounds.x = fViewLoc.x;
@@ -98,6 +126,7 @@ public class FloatingTextField {
         Insets tfInsets = textField.getInsets();
         float fontBaseline = textField.getGraphics().getFontMetrics(font).getMaxAscent();
         double fBaseline = editedFigure.getBaseline() * view.getScaleFactor();
+
         textField.setBounds(
                 fViewBounds.x - tfInsets.left,
                 fViewBounds.y - tfInsets.top - (int) (fontBaseline - fBaseline),
@@ -105,6 +134,7 @@ public class FloatingTextField {
                 Math.max(fViewBounds.height + tfInsets.top + tfInsets.bottom, tfDim.height)
         );
     }
+
 
     public Insets getInsets() {
         return textField.getInsets();
