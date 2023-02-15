@@ -35,7 +35,11 @@
 			<artifactId>featuretracerlite</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+		REMOVED DEPENDENCY
+
 		-->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
