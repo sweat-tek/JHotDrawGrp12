@@ -9,11 +9,16 @@
 	<artifactId>jhotdraw-utils</artifactId>
 	<packaging>jar</packaging>
 	<dependencies>
+		<!--
 		<dependency>
 			<groupId>dk.sdu.mmmi</groupId>
 			<artifactId>featuretracerlite</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+		REMOVED DEPENDENCY
+
+		-->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
