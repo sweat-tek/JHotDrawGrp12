@@ -117,7 +117,6 @@ public class TextCreationTool extends CreationTool implements ActionListener {
     }
 
 
-
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
             textField = new FloatingTextField();
@@ -134,6 +133,7 @@ public class TextCreationTool extends CreationTool implements ActionListener {
     @Override
     public void mouseReleased(MouseEvent evt) {
     }
+
 
     protected void endEdit() {
         if (typingTarget != null) {
@@ -152,7 +152,6 @@ public class TextCreationTool extends CreationTool implements ActionListener {
                     typingTarget.changed();
                 }
             }
-
             UndoableEdit edit = new AbstractUndoableEdit() {
                 private static final long serialVersionUID = 1L;
 

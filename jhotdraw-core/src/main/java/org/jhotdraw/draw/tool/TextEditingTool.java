@@ -49,14 +49,14 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
     private static final long serialVersionUID = 1L;
     private FloatingTextField textField;
     private TextHolderFigure typingTarget;
-    private TextHelpEditingTool editingTool;
+    private TextEditingHandler editingTool;
 
     /**
      * Creates a new instance.
      */
     public TextEditingTool(TextHolderFigure typingTarget) {
         this.typingTarget = typingTarget;
-        editingTool = new TextHelpEditingTool(typingTarget);
+        editingTool = new TextEditingHandler(typingTarget);
     }
 
     @Override
@@ -79,7 +79,6 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         }
     }
 
-
     //Refactoring
     protected void beginEdit(TextHolderFigure textHolder) {
         if (textField == null) {
@@ -93,9 +92,6 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         textField.requestFocus();
         typingTarget = textHolder;
     }
-
-
-
 
 
     @Override

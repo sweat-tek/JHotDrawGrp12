@@ -13,13 +13,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-public class TextHelpEditingTool extends AbstractTool implements ActionListener {
+public class TextEditingHandler extends AbstractTool implements ActionListener {
 
     private static final long serialVersionUID = 1L;
     private FloatingTextField textField;
     private TextHolderFigure typingTarget;
 
-    public TextHelpEditingTool(TextHolderFigure typingTarget) {
+    public TextEditingHandler(TextHolderFigure typingTarget) {
         this.typingTarget = typingTarget;
         System.out.println("instantiated new editing tool");
     }
