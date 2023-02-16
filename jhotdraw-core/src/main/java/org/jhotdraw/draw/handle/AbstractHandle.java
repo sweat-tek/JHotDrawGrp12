@@ -7,7 +7,7 @@
  */
 package org.jhotdraw.draw.handle;
 
-import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+//import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.draw.figure.Figure;
 import java.awt.*;
 import java.awt.event.*;
@@ -190,9 +190,8 @@ public abstract class AbstractHandle implements Handle, FigureListener {
         }
     }
 
-    @FeatureEntryPoint(value = "Rectangle draw")
+//    @FeatureEntryPoint(value = "Rectangle draw")
     protected void drawRectangle(Graphics2D g, Color fill, Color stroke) {
-        System.out.println("rectangle 3 ");
         if (fill != null) {
             Rectangle r = getBounds();
             g.setColor(fill);

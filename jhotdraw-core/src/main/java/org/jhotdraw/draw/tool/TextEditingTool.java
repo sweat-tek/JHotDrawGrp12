@@ -7,7 +7,7 @@
  */
 package org.jhotdraw.draw.tool;
 
-import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+//import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.draw.figure.TextHolderFigure;
 import java.awt.*;
 import java.awt.event.*;
@@ -75,7 +75,7 @@ public class TextEditingTool extends AbstractTool implements ActionListener {
         }
     }
 
-    @FeatureEntryPoint(value = "TextEditTool")
+//    @FeatureEntryPoint(value = "TextEditTool")
     protected void beginEdit(TextHolderFigure textHolder) {
         System.out.println("Started editing with text tool - TextEditingTool-L80");
         if (textField == null) {
