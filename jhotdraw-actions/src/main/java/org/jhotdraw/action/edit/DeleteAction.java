@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import javax.swing.JComponent;
+import javax.swing.*;
 import javax.swing.text.*;
 import org.jhotdraw.api.gui.EditableComponent;
 import org.jhotdraw.beans.WeakPropertyChangeListener;
@@ -61,6 +61,7 @@ public class DeleteAction extends TextAction {
      * focused component.
      */
     private JComponent target;
+    private ActionHelper helper = new ActionHelper();
     /**
      * This variable keeps a strong reference on the property change listener.
      */
@@ -113,12 +114,7 @@ public class DeleteAction extends TextAction {
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("delete");
-        JComponent c = target;
-        if (c == null && (KeyboardFocusManager.getCurrentKeyboardFocusManager().
-                getPermanentFocusOwner() instanceof JComponent)) {
-            c = (JComponent) KeyboardFocusManager.getCurrentKeyboardFocusManager().
-                    getPermanentFocusOwner();
-        }
+        JComponent c = helper.TargetCheck(target);
         if (c != null && c.isEnabled()) {
             if (c instanceof EditableComponent) {
                 ((EditableComponent) c).delete();
