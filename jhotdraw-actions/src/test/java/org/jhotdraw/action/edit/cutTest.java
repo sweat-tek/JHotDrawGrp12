@@ -23,14 +23,12 @@ public class cutTest {
 
     @Test
     public void testCut() {
-        // Test that the CutAction was constructed correctly
         assertNotNull(c);
         assertTrue(c instanceof AbstractSelectionAction);
     }
 
     @Test
     public void testActionPerformed() {
-        // Test that the actionPerformed method works as expected
         c.actionPerformed(new ActionEvent(t, 0, ""));
 
         Transferable transferable = ClipboardUtil.getClipboard().getContents(null);
