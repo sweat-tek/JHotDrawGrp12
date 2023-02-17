@@ -1,3 +1,8 @@
+## Branch and project 
+
+This branch belongs to MizzleTheHorse (Emil M)
+which features the refactoring of the Text Tool - 2. as well as test cases. 
+
 # jhotdraw
 
 * maven build process
@@ -13,7 +18,4 @@
 
 This is a fork of jhotdraw from http://sourceforge.net/projects/jhotdraw.
 
-## Branch and project 
 
-This branch belongs to MizzleTheHorse (Emil M)
-which features the refactoring of the Text Tool - 2. as well as test cases. 
